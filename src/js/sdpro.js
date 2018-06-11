@@ -14,31 +14,32 @@ SDsix.prototype = {
     try {
       this.sdArr = []
       var allNum = [1, 2, 3, 4, 5, 6]
-      outerfor:
+      // outerfor:
       for (var i = 1; i <= 6; i++) {
-        innerfor:
+        // innerfor:
         for (var j = 1; j <= 6; j++) {
-          if (this.sdArr[parseInt(i + '' + j)]) {
-            continue innerfor
-          }
-          var XArr = this.getXArr(j, this.sdArr)
-          var YArr = this.getYArr(i, this.sdArr)
-          var thArr = this.getThArr(i, j, this.sdArr)
-          var arr = getConnect(getConnect(XArr, YArr), thArr)
-          var ableArr = arrMinus(allNum, arr)
-          if (ableArr.length == 0) {
-            this.createSdArr()
-            return
-            break outerfor
-            break
-          }
-          var item
-          // 如果生成的重复了就重新生成。
-          do {
-            item = ableArr[getRandom(ableArr.length) - 1]
-          } while (arr.indexOf(item) > -1)
+            // console.log(this.sdArr[parseInt(i + '' + j)])
+          if (!this.sdArr[parseInt(i + '' + j)]) {
+            // continue innerfor
+            var XArr = this.getXArr(j, this.sdArr)
+            var YArr = this.getYArr(i, this.sdArr)
+            var thArr = this.getThArr(i, j, this.sdArr)
+            var arr = getConnect(getConnect(XArr, YArr), thArr)
+            var ableArr = arrMinus(allNum, arr)
+            if (ableArr.length == 0) {
+              this.createSdArr()
+              return
+              // break outerfor
+              // break
+            }
+            var item
+            // 如果生成的重复了就重新生成。
+            do {
+              item = ableArr[getRandom(ableArr.length) - 1]
+            } while (arr.indexOf(item) > -1)
 
-          this.sdArr[parseInt(i + '' + j)] = item
+            this.sdArr[parseInt(i + '' + j)] = item
+          }
         }
       }
       this.backupSdArr = this.sdArr.slice()
@@ -129,28 +130,28 @@ SDfour.prototype = {
       for (var i = 1; i <= 4; i++) {
         // innerfor:
         for (var j = 1; j <= 4; j++) {
-          // if (this.sdArr[parseInt(i + '' + j)]) {
-          //   continue innerfor;
-          // }
-          var XArr = this.getXArr(j, this.sdArr)
-          var YArr = this.getYArr(i, this.sdArr)
-          var thArr = this.getThArr(i, j, this.sdArr)
-          var arr = getConnect(getConnect(XArr, YArr), thArr)
-          var ableArr = arrMinus(allNum, arr)
+          if (!this.sdArr[parseInt(i + '' + j)]) {
+            // continue innerfor;
+            var XArr = this.getXArr(j, this.sdArr)
+            var YArr = this.getYArr(i, this.sdArr)
+            var thArr = this.getThArr(i, j, this.sdArr)
+            var arr = getConnect(getConnect(XArr, YArr), thArr)
+            var ableArr = arrMinus(allNum, arr)
 
-          if (ableArr.length == 0) {
-            this.createSdArr()
-            return
-            // break outerfor;
+            if (ableArr.length == 0) {
+              this.createSdArr()
+              return
+              // break outerfor;
+            }
+
+            var item
+            // 如果生成的重复了就重新生成。
+            do {
+              item = ableArr[getRandom(ableArr.length) - 1]
+            } while (arr.indexOf(item) > -1)
+
+            this.sdArr[parseInt(i + '' + j)] = item
           }
-
-          var item
-          // 如果生成的重复了就重新生成。
-          do {
-            item = ableArr[getRandom(ableArr.length) - 1]
-          } while (arr.indexOf(item) > -1)
-
-          this.sdArr[parseInt(i + '' + j)] = item
         }
       }
       this.backupSdArr = this.sdArr.slice()
@@ -212,7 +213,7 @@ SDfour.prototype = {
       blankArr.push(item)
     }
     this.blankArr = blankArr
-    console.log(blankArr)
+    // console.log(blankArr)
     for (var i = 0; i < blankArr.length; i++) {
       this.sdArr[blankArr[i]] = ''
     }
@@ -242,32 +243,32 @@ SDnine.prototype = {
       this.setThird(5, 5)
       this.setThird(8, 8)
       var allNum = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      outerfor:
+      // outerfor:
       for (var i = 1; i <= 9; i++) {
-        innerfor:
+        // innerfor:
         for (var j = 1; j <= 9; j++) {
-          if (this.sdArr[parseInt(i + '' + j)]) {
-            continue innerfor
-          }
-          var XArr = this.getXArr(j, this.sdArr)
-          var YArr = this.getYArr(i, this.sdArr)
-          var thArr = this.getThArr(i, j, this.sdArr)
-          var arr = getConnect(getConnect(XArr, YArr), thArr)
-          var ableArr = arrMinus(allNum, arr)
+          if (!this.sdArr[parseInt(i + '' + j)]) {
+            // continue innerfor
+            var XArr = this.getXArr(j, this.sdArr)
+            var YArr = this.getYArr(i, this.sdArr)
+            var thArr = this.getThArr(i, j, this.sdArr)
+            var arr = getConnect(getConnect(XArr, YArr), thArr)
+            var ableArr = arrMinus(allNum, arr)
 
-          if (ableArr.length == 0) {
-            this.createSdArr()
-            return
-            break outerfor
-            break
-          }
-          var item
-          // 如果生成的重复了就重新生成。
-          do {
-            item = ableArr[getRandom(ableArr.length) - 1]
-          } while (arr.indexOf(item) > -1)
+            if (ableArr.length == 0) {
+              this.createSdArr()
+              return
+              // break outerfor
+              // break
+            }
+            var item
+            // 如果生成的重复了就重新生成。
+            do {
+              item = ableArr[getRandom(ableArr.length) - 1]
+            } while (arr.indexOf(item) > -1)
 
-          this.sdArr[parseInt(i + '' + j)] = item
+            this.sdArr[parseInt(i + '' + j)] = item
+          }
         }
       }
       this.backupSdArr = this.sdArr.slice()
@@ -339,7 +340,7 @@ SDnine.prototype = {
       blankArr.push(item)
     }
     this.blankArr = blankArr
-    console.log(blankArr)
+    // console.log(blankArr)
     for (var i = 0; i < blankArr.length; i++) {
       this.sdArr[blankArr[i]] = ''
     }
