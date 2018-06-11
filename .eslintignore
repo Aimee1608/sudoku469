@@ -1,0 +1,4 @@
+build/*.js
+config/*.js
+mockData.js
+/test/unit/coverage/
