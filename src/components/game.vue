@@ -163,6 +163,7 @@ export default {
       }
     },
     check () {
+        // console.log(this.sdArr + '' == this.sd.backupSdArr + '', this.sdArr, this.sd.backupSdArr)
       if (this.sdArr + '' == this.sd.backupSdArr + '') {
         this.$store.result = {
                 type: this.type,
@@ -184,7 +185,7 @@ export default {
     restart () {
         console.log(this.sdArr, this.sd.sdArr)
         this.level = this.typelevel
-        this.sdArr = this.sd.sdArr
+        this.sdArr = this.sd.sdArr.slice()
         this.startTime = Date.now()
         this.activeId = null
         this.sign = 'g0'
@@ -219,7 +220,7 @@ export default {
       } else {
           this.$router.push('/')
       }
-    this.sdArr = this.sd.sdArr
+    this.sdArr = this.sd.sdArr.slice()
     this.able = this.sd.sdArr.map(x => x ? 0 : 1)
     this.startTime = Date.now()
     // console.log('答案答案', this.sd.backupSdArr)

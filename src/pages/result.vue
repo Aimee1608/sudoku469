@@ -75,13 +75,13 @@ export default {
   },
   methods: { // 事件处理方法
     again () {
-      this.$router.push({path: '/'})
+      // this.$router.push({path: '/'})
       var url = this.msg.type == 4 ? '/four' : this.msg.type == 6 ? '/six' : this.msg.type == 9 ? '/nine' : '/'
       this.$router.push(url)
     }
   },
   created () { // 生命周期函数
-    // console.log(this.$store.result) 
+    // console.log(this.$store.result)
     if (this.$store.result) {
         var status = this.$store.result.avg - this.$store.result.time > 0 ? this.$store.result.avg - this.$store.result.time > 60 ? 3 : 2 : 1
         this.sdArr = this.$store.result.sdArr
